@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { auth } from '../middleware/authentication-middleware'
 import {
   createUser,
   editUser,
@@ -10,10 +11,10 @@ const userRoutes = Router()
 
 userRoutes.post('/create', createUser)
 
-userRoutes.put('/edit/:userId', editUser)
+userRoutes.put('/edit', auth(), editUser)
 
-userRoutes.get('/get/:userId', getUser)
+userRoutes.get('/get', auth(), getUser)
 
-userRoutes.get('/get', getUsers)
+userRoutes.get('/get/all', auth(), getUsers)
 
 export { userRoutes }
