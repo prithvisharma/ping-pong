@@ -1,10 +1,10 @@
 import { User } from './user'
 
 interface Game {
-  id?: string
+  gameId?: string
   players: {
     playerOneId: User['id']
-    playerTwoId: User['id']
+    playerTwoId?: User['id']
     playerOneScore: number
     playerTwoScore: number
   }
@@ -12,16 +12,11 @@ interface Game {
   winner?: User['id']
 }
 
-function initGame(playersData: {
-  playerOneId: User['id']
-  playerTwoId: User['id']
-}): Game {
-  const { playerOneId, playerTwoId } = playersData
+function initGame(playerOneId: string): Game {
   return {
-    id: crypto.randomUUID(),
+    gameId: crypto.randomUUID(),
     players: {
       playerOneId: playerOneId,
-      playerTwoId: playerTwoId,
       playerOneScore: 0,
       playerTwoScore: 0,
     },
