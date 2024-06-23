@@ -1,12 +1,10 @@
 import { Express, Router } from 'express'
+import { gameRoutes } from './routes/game-routes'
 import { loginRoutes } from './routes/login-routes'
-import { playerRoutes } from './routes/player-routes'
-import { refereeRoutes } from './routes/referee-routes'
 import { userRoutes } from './routes/user-routes'
 
 const routes = {
-  '/referee': refereeRoutes,
-  '/player': playerRoutes,
+  '/game': gameRoutes,
   '/user': userRoutes,
   '/login': loginRoutes,
 }
