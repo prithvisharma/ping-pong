@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { auth } from '../middleware/authentication-middleware'
 import {
   getAllGames,
+  getGame,
   joinGame,
   playerAttack,
   playerDefend,
@@ -10,6 +11,8 @@ import {
 const gameRoutes = Router()
 
 gameRoutes.get('/all', auth(), getAllGames)
+
+gameRoutes.get('/id/:gameId', auth(), getGame)
 
 gameRoutes.post('/join', auth(), joinGame)
 
