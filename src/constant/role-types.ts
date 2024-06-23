@@ -1,6 +1,6 @@
-const Role = {
+const RoleTypes = {
   Player: 'Player',
   Referee: 'Referee',
 }
 
-export { Role }
+export { RoleTypes }

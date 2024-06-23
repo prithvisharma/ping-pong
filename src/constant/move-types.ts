@@ -1,6 +1,6 @@
-const Move = {
+const MoveTypes = {
   Attack: 'Attack',
   Defence: 'Defence',
 }
 
-export { Move }
+export { MoveTypes }
