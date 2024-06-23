@@ -37,7 +37,7 @@ const editUser = async (req: CustomRequest, res: Response) => {
 }
 
 const getUser = async (req: CustomRequest, res: Response) => {
-  const { userId } = req.params
+  const userId = req.user?.userId
   const user = await database.users?.findOne({ userId: userId })
   if (!user)
     return res.status(404).json({ ok: false, message: 'User Not Found' })
