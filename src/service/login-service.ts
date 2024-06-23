@@ -20,7 +20,7 @@ const login = async (req: Request, res: Response) => {
       message: 'Invalid Credentials',
     })
   }
-  const token = await createToken({ user })
+  const token = await createToken(user)
   return res.json({ ok: true, message: 'User logged In', token: token })
 }
 
