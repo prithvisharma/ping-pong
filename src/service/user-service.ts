@@ -11,6 +11,11 @@ const createUser = async (req: Request, res: Response) => {
       .status(400)
       .json({ ok: false, message: 'Invalid Request Body Data' })
   }
+  const existingUser = await database.users?.findOne({ userId: userId })
+  if (existingUser)
+    return res
+      .status(409)
+      .json({ ok: false, message: 'User Exists With "userId"' })
   const encryptedPassword = await bcrypt.hash(password, 10)
   const user: User = initUser({
     name,
