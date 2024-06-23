@@ -1,3 +1,4 @@
+import { Move } from './move'
 import { User } from './user'
 
 interface Game {
@@ -8,7 +9,7 @@ interface Game {
     playerOneScore: number
     playerTwoScore: number
   }
-  moves?: { playerId: User['id']; moveType: string }[]
+  moves?: Move[]
   winner?: User['id']
 }
 
