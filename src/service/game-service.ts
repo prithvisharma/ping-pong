@@ -38,11 +38,26 @@ const joinGame = async (req: CustomRequest, res: Response) => {
         .json({ ok: false, message: 'Internal Server Error' })
     }
   } else {
+    const game: Game | null | undefined = await database.games?.findOne<Game>({
+      gameId: gameId,
+    })
+    if (!game) {
+      return res.status(404).json({ ok: false, message: 'Game Not Found' })
+    }
+    if (game.players.playerOneId === userId) {
+      return res
+        .status(409)
+        .json({ ok: false, message: 'Both Players Cannot Be Same' })
+    }
+    if (typeof game.players.playerTwoId === 'string') {
+      return res
+        .status(409)
+        .json({ ok: false, message: 'Game Full, Create New Game' })
+    }
     const updateResult = await database.games?.updateOne(
       { gameId: gameId },
       { $set: { 'players.playerTwoId': userId } }
     )
-
     if (updateResult?.modifiedCount === 1) {
       return res.status(200).json({ ok: true, message: 'Game Joined' })
     } else {
