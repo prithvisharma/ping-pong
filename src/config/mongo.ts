@@ -1,7 +1,7 @@
 import { Collection, MongoClient } from 'mongodb'
 
 interface Database {
-  players?: Collection
+  users?: Collection
   games?: Collection
 }
 
@@ -16,7 +16,7 @@ const connectToDatabase = async (): Promise<void> => {
     await client.connect()
     console.log('Connected to MongoDB')
     const dbClient = client.db('pingpong')
-    database.players = dbClient.collection('players')
+    database.users = dbClient.collection('users')
     database.games = dbClient.collection('games')
   } catch (error) {
     console.error('Error connecting to MongoDB: ', error)
