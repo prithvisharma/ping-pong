@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "3588ed19-d732-4c55-80ee-19ece64cc117",
+		"name": "PING PONG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12564675"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test2 User2\",\n    \"userId\": \"test2@gmail.com\",\n    \"password\": \"12345\",\n    \"defenseSetLength\": 3,\n    \"role\": \"Player\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/game/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/game/id/:gameId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"id",
+						":gameId"
+					],
+					"variable": [
+						{
+							"key": "gameId",
+							"value": "1286484d-837e-4e38-b41e-16253ec166a7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Game (New Game)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\":\"\",\n    \"createNewGame\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/game/join",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Game (Existing Game)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\":\"1286484d-837e-4e38-b41e-16253ec166a7\",\n    \"createNewGame\":false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/game/join",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Game Attack",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": \"1286484d-837e-4e38-b41e-16253ec166a7\",\n    \"attackKey\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/game/attack",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"attack"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Game Defend",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": \"1286484d-837e-4e38-b41e-16253ec166a7\",\n    \"defenceGrid\": [\n        1,\n        3\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/game/defend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"game",
+						"defend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"test2@gmail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{playerOneToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "playerOneToken",
+			"value": "eyJhbGciOiJSUzUxMiJ9.eyJqd3RQYXlsb2FkIjp7Il9pZCI6IjY2NzgzY2YzZjNkOTAzYTFmMDViZmEyZiIsImlkIjoiZjM4ODg0NGYtOTQyNC00ZWFkLWFmODMtNTViNjZiMGJkZTMyIiwibmFtZSI6IlRlc3QgVXNlciIsInVzZXJJZCI6InRlc3RAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkaEpPcUgvdzRwc1hqaFVCY3pYTExRZVRybldzRXZUQXlQbDc0cThOai5CekFMZXJkODhIaDIiLCJkZWZlbnNlU2V0TGVuZ3RoIjoyLCJyb2xlIjoiUGxheWVyIn0sImlhdCI6MTcxOTE1OTI4NywiZXhwIjoxNzE5MjAyNDg3LCJhdWQiOiJhdWRpZW5jZSJ9.Zo8LBPa0YVCqD6XvNZ5D3kcCbz4jeI1toOFvLUwMTnx22kCZ1QtEmUIDrKUKFT1BcQ_GZOm32wX0KLguWhns4Kbu2ogd7inkuSxTm_NdR76mUrzd8R9X5zG_i8zeNeuLQdfS8GYOvB-Og46Uf692ggwKbCSSzNpIwMonZGffJXXDoghwLEn9aGBmCdK0KYzcmcWpKFjBacCKZM8J9xM6avClopOarDQNQFT7tdpq-5RK6DZHbIMS2XeR5sEXIn4kNseuPil6g5uZc3As4K4XOtIokpllcfmp-Z8GKjWJDzspFIGSvSchxT8R9Y7t8OWqkHvPtRb5Ai5GQjEgEh6mlptuTM77smv9sUTyaNHfpMCh4KVDWqAG8d9GYq4ZPZONdohfb74eYgEZgUNO4hAI8Y88Ag4Lp3a8uMTu8fa9f1oyZ2J9Vb3vlfRLzxAyf0qxJoq-4aGZ-bueNSOwZTQbSQXrQZ4Pf015gnahm9IaBcsXv0kHiapI3FXapvujKlHhTBH-7tM-r5QV-PyvQCMMk1h9eJLHSwhygRCv8YUKxBAdPz73EYuKLwKChQdXgychS6NbebrwJRMfYcdi8AaUFi1reT4DMOd7sd6m-ICUVTpp5Yp3T0K8gQbvbSkn_IFGmX-cG4CSupDfEDopMBNx6IM1ksymK2-2te5nEJ4rB7Q",
+			"type": "string"
+		},
+		{
+			"key": "playerTwoToken",
+			"value": "eyJhbGciOiJSUzUxMiJ9.eyJqd3RQYXlsb2FkIjp7Il9pZCI6IjY2Nzg1YWZiMGEwODUxZjQ5ZjRiNTdmNCIsImlkIjoiNTJkZjIwY2MtNjUyZS00N2FmLWIxOGMtNDk3NmQ2OGRjMzQ0IiwibmFtZSI6IlRlc3QyIFVzZXIyIiwidXNlcklkIjoidGVzdDJAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkVHZGb241QlBVeVhtUjd4a1RNVkVwZXVFRnY1TmI4d1p1TXIvVjI0MXlwM1hyZHNxN3M3cHUiLCJkZWZlbnNlU2V0TGVuZ3RoIjozLCJyb2xlIjoiUGxheWVyIn0sImlhdCI6MTcxOTE2MzY3NCwiZXhwIjoxNzE5MjA2ODc0LCJhdWQiOiJhdWRpZW5jZSJ9.CJbyF8KIA66kqdmoeIeSvHNFBGs7F-h6O7j9NAHUPpDgL9Psx5uS9eyIzkvBBTNAmseexrdzF7-ZOUI2Bd7yKv-BZs9Cad9_3hg-RbwnPpZD08e-GUJ0iztQET0rWTIx3uE2Uk0heJGXcxLZao7ZvTC-ndx0MGWmSjurejDmNQEd7QF_U5gEqmPkbOQIrpGXkLTtxH3a0cluI3rO4JsKUMda9fqhjhG0S84ZFd8XIUToU0dDpDpph7hnFagik6nHtgEE7DdxRALJD_ComKAgsU8gocwdlaVPXL5jQX6DtI6amujSmHa8Jlj0t3Ly8Ugwz6c79ysHdSIugwDLkKDKBSNcUwcbciiSTbtF_YOBAJHfCRbfrJuYU0SLrEzY8HejktyE4TeMA29TVuDhFRGfcwabq8aBGh-Quq3vGI_RiMZM-58Q3EQcQz3SWBTX4XM55iLYfEWRNCgg6PYVr8Fom2Qifnv696DpPLTNmR7QsTCU0-xHLroRbMf7d0lYTm39tt5dT-A2f2OQCWm6CMihQkesaMib0unG5ytaaAeueQOT-vNbmxe9ixuLAfTdDuUJuj64HkqL5la3_VK0-QuwFyd-uzXk8_IQGZmlt0H5SqEjvutUKmkj3JlRoDBeISmYBP6BIYuUpOxCJjT2ONZ2kOYQGJ5cDkuGphpcT5GmVZ4",
+			"type": "string"
+		}
+	]
+}
